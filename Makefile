@@ -23,11 +23,8 @@ build: tidy check
 	go build ./...
 
 test:
-	go test -race -coverprofile=coverage.txt -covermode=atomic -v .
+	go test -race -coverprofile=coverage.txt -covermode=atomic -v ./...
 	go tool cover -html="coverage.txt" -o "coverage.html"
-
-integration_test:
-	go test -count=1 -race -covermode=atomic -v ./tests
 
 tidy:
 	go mod tidy
