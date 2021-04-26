@@ -8,3 +8,4 @@
 - [Read a file](read.go)
 - [Read a range of a file](read.go)
 - [Read a file with callback](read.go)
+- [Append an existing or new file](append.go)
