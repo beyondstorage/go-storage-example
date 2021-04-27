@@ -6,6 +6,7 @@ import (
 	"io/ioutil"
 	"log"
 	"math/rand"
+
 	"github.com/aos-dev/go-storage/v3/pkg/randbytes"
 	"github.com/aos-dev/go-storage/v3/types"
 )
@@ -30,7 +31,7 @@ func AppendToNewFile(appender types.Appender, path string) {
 		log.Fatalf("CreateAppend #{path}: #{err}")
 	}
 
-	// WriteAppend could be called many times. The maximum size of the final appendable object ups to different service.
+	// WriteAppend could be called many times. The maximum size of the final appendable object ups to different services.
 	//
 	// WriteAppend needs at least three arguments.
 	//
@@ -77,13 +78,8 @@ func AppendToExistingFile(store types.Storager, path string) {
 		log.Fatalf("Stat %v: %v", path, err)
 	}
 
-	// appendable object's mode must be Appendable and Readable
-	if !o.Mode.IsAppend() || !o.Mode.IsRead() {
-		log.Fatalf("The Object Mode is not appendable")
-	}
-
-	// `o` is the appendable object returned by Stat. It maintains the next call's append position.
-	// User could use o.SetAppendOffset(v) to specify the next append position. If `v` is not equal to the current object length, the service will return an error.
+	// `o` is the object returned by Stat.
+	// The service should check if the object `isAppend` and maintains the next call's append position.
 	n, err := appender.WriteAppend(o, r, size)
 	if err != nil {
 		log.Fatalf("WriteAppend %v: %v", path, err)
