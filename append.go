@@ -28,7 +28,7 @@ func AppendToNewFile(appender types.Appender, path string) {
 	// `err` is the error during this operation.
 	o, err := appender.CreateAppend(path)
 	if err != nil {
-		log.Fatalf("CreateAppend #{path}: #{err}")
+		log.Fatalf("CreateAppend %v: %v", path, err)
 	}
 
 	// WriteAppend could be called many times. The maximum size of the final appendable object ups to different services.
@@ -45,6 +45,16 @@ func AppendToNewFile(appender types.Appender, path string) {
 	n, err := appender.WriteAppend(o, r, size)
 	if err != nil {
 		log.Fatalf("WriteAppend %v: %v", path, err)
+	}
+
+	// CommitAppend needs at least one argument.
+	// `o` is the object returned by CreateAppend.
+	//
+	// CommitAppend will return one value.
+	// `err` is the error during this operation.
+	err = appender.CommitAppend(o)
+	if err != nil {
+		log.Fatalf("CommitAppend %v: %v", path, err)
 	}
 
 	log.Printf("append size: %d", n)
@@ -83,6 +93,11 @@ func AppendToExistingFile(store types.Storager, path string) {
 	n, err := appender.WriteAppend(o, r, size)
 	if err != nil {
 		log.Fatalf("WriteAppend %v: %v", path, err)
+	}
+
+	err = appender.CommitAppend(o)
+	if err != nil {
+		log.Fatalf("CommitAppend %v: %v", path, err)
 	}
 
 	log.Printf("append size: %d", n)
