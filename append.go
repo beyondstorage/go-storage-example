@@ -7,8 +7,8 @@ import (
 	"log"
 	"math/rand"
 
-	"github.com/aos-dev/go-storage/v3/pkg/randbytes"
-	"github.com/aos-dev/go-storage/v3/types"
+	"github.com/beyondstorage/go-storage/v4/pkg/randbytes"
+	"github.com/beyondstorage/go-storage/v4/types"
 )
 
 func AppendToNewFile(appender types.Appender, path string) {
