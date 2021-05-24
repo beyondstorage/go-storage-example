@@ -5,31 +5,31 @@ import (
 	"encoding/json"
 	"os"
 
-	s3 "github.com/aos-dev/go-service-s3"
-	"github.com/aos-dev/go-storage/v3/pairs"
-	"github.com/aos-dev/go-storage/v3/types"
+	s3 "github.com/beyondstorage/go-service-s3/v2"
+	"github.com/beyondstorage/go-storage/v4/pairs"
+	"github.com/beyondstorage/go-storage/v4/types"
 )
 
 func S3Pairs() []types.Pair {
 	return []types.Pair{
-		// work_dir: https://aos.dev/docs/go-storage/pairs/work_dir
+		// work_dir: https://beyondstorage.io/docs/go-storage/pairs/work_dir
 		//
 		// Relative operations will be based on this WorkDir.
 		pairs.WithWorkDir(os.Getenv("STORAGE_S3_WORKDIR")),
-		// credential: https://aos.dev/docs/go-storage/pairs/credential
+		// credential: https://beyondstorage.io/docs/go-storage/pairs/credential
 		//
 		// Credential could be fetched from service's console.
 		//
 		// Example Value: hmac:access_key_id:secret_access_key
 		pairs.WithCredential(os.Getenv("STORAGE_S3_CREDENTIAL")),
-		// endpoint: https://aos.dev/docs/go-storage/pairs/endpoint
+		// endpoint: https://beyondstorage.io/docs/go-storage/pairs/endpoint
 		//
 		// endpoint is default to amazon s3's endpoint.
 		// If using s3 compatible services, please input their endpoint.
 		//
 		// Example Value: https:host:port
 		pairs.WithEndpoint(os.Getenv("STORAGE_S3_ENDPOINT")),
-		// location: https://aos.dev/docs/go-storage/pairs/location
+		// location: https://beyondstorage.io/docs/go-storage/pairs/location
 		//
 		// For s3, location is the bucket's zone.
 		// For s3 compatible services, location could be ignored or has other value,
@@ -37,7 +37,7 @@ func S3Pairs() []types.Pair {
 		//
 		// Example Value: ap-east-1
 		pairs.WithLocation(os.Getenv("STORAGE_S3_LOCATION")),
-		// name: https://aos.dev/docs/go-storage/pairs/name
+		// name: https://beyondstorage.io/docs/go-storage/pairs/name
 		//
 		// name is the bucket name.
 		pairs.WithName(os.Getenv("STORAGE_S3_NAME"))}
