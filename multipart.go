@@ -8,9 +8,9 @@ import (
 	"log"
 	"math/rand"
 
-	"github.com/aos-dev/go-storage/v3/pairs"
-	"github.com/aos-dev/go-storage/v3/pkg/randbytes"
-	"github.com/aos-dev/go-storage/v3/types"
+	"github.com/beyondstorage/go-storage/v4/pairs"
+	"github.com/beyondstorage/go-storage/v4/pkg/randbytes"
+	"github.com/beyondstorage/go-storage/v4/types"
 )
 
 func MultipartUploadTest(store types.Storager, path string) {
@@ -39,6 +39,9 @@ func MultipartUploadTest(store types.Storager, path string) {
 		log.Fatalf("CreateMultipart %v: %v", path, err)
 	}
 
+	// `isValidMultipartID` indicates whether the multipartId is valid.
+	var isValidMultipartID = true
+
 	// Delete with multipartId could be called when you want to abort the multipart upload or error occurred.
 	//
 	// Delete with multipartId needs at least two arguments.
@@ -48,12 +51,14 @@ func MultipartUploadTest(store types.Storager, path string) {
 	//
 	// Delete with multipartId will return one value.
 	// `err` is the error during this operation.
-	defer func() {
-		err := store.Delete(path, pairs.WithMultipartID(o.MustGetMultipartID()))
-		if err != nil {
-			log.Fatalf("DeleteWithMultipartID %v: %v", path, err)
+	defer func(hasMultipartID bool) {
+		if hasMultipartID {
+			err := store.Delete(path, pairs.WithMultipartID(o.MustGetMultipartID()))
+			if err != nil {
+				log.Fatalf("DeleteWithMultipartID %v: %v", path, err)
+			}
 		}
-	}()
+	}(isValidMultipartID)
 
 	// WriteMultipart could be called concurrently.
 	//
@@ -112,6 +117,9 @@ func MultipartUploadTest(store types.Storager, path string) {
 		log.Fatalf("CompleteMultipart %v: %v", path, err)
 	}
 
+	// The `multipartId` is invalid after completing multipart upload successfully.
+	isValidMultipartID = false
+
 	log.Printf("multipart upload size: %d", n)
 }
 
@@ -132,12 +140,15 @@ func MultiparterWithUploadIdTest(store types.Storager, path string) {
 
 	multipartId := o.MustGetMultipartID()
 
-	defer func() {
-		err := store.Delete(path, pairs.WithMultipartID(multipartId))
-		if err != nil {
-			log.Fatalf("DeleteWithMultipartID %v: %v", path, err)
+	var isValidMultipartID = true
+	defer func(hasMultipartID bool) {
+		if hasMultipartID {
+			err := store.Delete(path, pairs.WithMultipartID(multipartId))
+			if err != nil {
+				log.Fatalf("DeleteWithMultipartID %v: %v", path, err)
+			}
 		}
-	}()
+	}(isValidMultipartID)
 
 	// Create with multipartId could be called when you want to create a multipart object with a known multipartId.
 	//
@@ -160,5 +171,6 @@ func MultiparterWithUploadIdTest(store types.Storager, path string) {
 		log.Fatalf("CompleteMultipart %v: %v", path, err)
 	}
 
+	isValidMultipartID = false
 	log.Printf("multipart upload size: %d", n)
 }
