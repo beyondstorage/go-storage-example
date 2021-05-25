@@ -102,6 +102,8 @@ func ResumeMultipart(store types.Storager, path string) {
 
 	// `partNumber` indicates the last uploaded part number.
 	var partNumber = -1
+	// `totalSize` indicates the total upload size.
+	var totalSize int64 = 0
 
 	// List all parts that have been uploaded for the specific multipartId.
 	//
@@ -118,6 +120,7 @@ func ResumeMultipart(store types.Storager, path string) {
 	}
 
 	// Traverse the iterator through `Next()` to get all the uploaded parts.
+	var parts []*types.Part
 	for {
 		p, err := it.Next()
 		if err != nil && !errors.Is(err, types.IterateDone) {
@@ -130,6 +133,8 @@ func ResumeMultipart(store types.Storager, path string) {
 		}
 
 		partNumber = p.Index
+		totalSize += p.Size
+		parts = append(parts, p)
 	}
 
 	n, part, err := multiparter.WriteMultipart(mo, r, size, partNumber+1)
@@ -137,12 +142,15 @@ func ResumeMultipart(store types.Storager, path string) {
 		log.Fatalf("WriteMultipart %v: %v", path, err)
 	}
 
-	err = multiparter.CompleteMultipart(mo, []*types.Part{part})
+	totalSize += n
+	parts = append(parts, part)
+
+	err = multiparter.CompleteMultipart(mo, parts)
 	if err != nil {
 		log.Fatalf("CompleteMultipart %v: %v", path, err)
 	}
 
-	log.Printf("multipart upload size: %d", n)
+	log.Printf("total upload size: %d", totalSize)
 }
 
 func CancelMultipart(store types.Storager, path string) {
