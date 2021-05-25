@@ -10,3 +10,6 @@
 - [Read a file with callback](read.go)
 - [Append to a new file](append.go)
 - [Append to an existing file](append.go)
+- [Multipart upload](multipart.go)
+- [Resume a multipart upload](multipart.go)
+- [Cancel a multipart upload](multipart.go)
