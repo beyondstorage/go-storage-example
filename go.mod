@@ -7,5 +7,5 @@ require (
 	github.com/beyondstorage/go-service-fs/v3 v3.3.0
 	github.com/beyondstorage/go-service-ipfs v0.1.0
 	github.com/beyondstorage/go-service-s3/v2 v2.3.0
-	github.com/beyondstorage/go-storage/v4 v4.3.2
+	github.com/beyondstorage/go-storage/v4 v4.4.0
 )
