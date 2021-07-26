@@ -6,6 +6,7 @@
 - [Create s3 Storager](new_s3.go) (Amazon S3)
 - [Create cos Storager](new_cos.go) (Tencent Cloud Object Storage)
 - [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
+- [Create minio Storager](new_minio.go) (MinIO)
 - [Read a file](read.go)
 - [Read a range of a file](read.go)
 - [Read a file with callback](read.go)
