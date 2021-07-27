@@ -1,14 +1,16 @@
 package example
 
 import (
+	"fmt"
 	"os"
 
 	minio "github.com/beyondstorage/go-service-minio"
 	"github.com/beyondstorage/go-storage/v4/pairs"
+	"github.com/beyondstorage/go-storage/v4/services"
 	"github.com/beyondstorage/go-storage/v4/types"
 )
 
-func NewMINIO() (types.Storager, error) {
+func NewMinio() (types.Storager, error) {
 	return minio.NewStorager(
 		// credential: https://beyondstorage.io/docs/go-storage/pairs/credential
 		//
@@ -29,4 +31,15 @@ func NewMINIO() (types.Storager, error) {
 		// Relative operations will be based on this WorkDir.
 		pairs.WithWorkDir(os.Getenv("STORAGE_MINIO_WORKDIR")),
 	)
+}
+
+func NewMinioFromString() (types.Storager, error) {
+	str := fmt.Sprintf(
+		"minio://%s/%s?credential=%s&endpoint=%s",
+		os.Getenv("STORAGE_MINIO_NAME"),
+		os.Getenv("STORAGE_MINIO_WORKDIR"),
+		os.Getenv("STORAGE_MINIO_CREDENTIAL"),
+		os.Getenv("STORAGE_MINIO_ENDPOINT"),
+	)
+	return services.NewStoragerFromString(str)
 }
