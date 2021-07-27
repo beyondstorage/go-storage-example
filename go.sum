@@ -17,8 +17,8 @@ github.com/beyondstorage/go-service-fs/v3 v3.3.0 h1:VOFdcshI4M1ovPbfwBpSdTp2Ckzv
 github.com/beyondstorage/go-service-fs/v3 v3.3.0/go.mod h1:/keWarsnGKz219wMyGN57OM7s5BUIZ/YlK9LhsXMwtQ=
 github.com/beyondstorage/go-service-ipfs v0.1.0 h1:x95Am3rm0wfex85Jl1EFhfU3WdA44nKg5t4FEULJt9M=
 github.com/beyondstorage/go-service-ipfs v0.1.0/go.mod h1:WY3xS1k2fNAi2Au2tKTC9NPUJwsskYEaZjjDXs2VkKQ=
-github.com/beyondstorage/go-service-minio v0.0.0-20210723053436-7b9b6bf56c60 h1:R7BqSNMBgNwmGigaHdbqNmTf/yFzcHGyCV7cXJ/2ST8=
-github.com/beyondstorage/go-service-minio v0.0.0-20210723053436-7b9b6bf56c60/go.mod h1:IYGsmM2AQwN1se7hjh6dJuaZHMAPWlXuXJIMkrncJck=
+github.com/beyondstorage/go-service-minio v0.1.0 h1:v5V2G0qtYidudkm9DGtacCYDZEJsTUJoH6zwERR8kEU=
+github.com/beyondstorage/go-service-minio v0.1.0/go.mod h1:IYGsmM2AQwN1se7hjh6dJuaZHMAPWlXuXJIMkrncJck=
 github.com/beyondstorage/go-service-s3/v2 v2.3.0 h1:mCdCuGmQ/26A1Xhj9tnFcRy3bXf1h5MT/TyFrJW8CAI=
 github.com/beyondstorage/go-service-s3/v2 v2.3.0/go.mod h1:B4gLy8g/uhjkLkVymkRES/tIKH2UhB0zmkzqzGaN5LU=
 github.com/beyondstorage/go-storage/v4 v4.3.0/go.mod h1:0fdcRCzLKMQe7Ve4zPlyTGgoPYwuINiV79Gx9tCt9tQ=
