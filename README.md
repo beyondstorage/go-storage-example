@@ -7,6 +7,7 @@
 - [Create cos Storager](new_cos.go) (Tencent Cloud Object Storage)
 - [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
 - [Create minio Storager](new_minio.go) (MinIO)
+- [Create ftp Storager](new_ftp.go) (File Transfer Protocol)
 - [Read a file](read.go)
 - [Read a range of a file](read.go)
 - [Read a file with callback](read.go)
