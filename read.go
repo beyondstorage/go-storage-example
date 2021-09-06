@@ -2,9 +2,13 @@ package example
 
 import (
 	"bytes"
+	"io/ioutil"
+	"log"
+	"net/http"
+	"time"
+
 	"github.com/beyondstorage/go-storage/v4/pairs"
 	"github.com/beyondstorage/go-storage/v4/types"
-	"log"
 )
 
 func ReadWhole(store types.Storager, path string) {
@@ -69,4 +73,45 @@ func ReadWithCallback(store types.Storager, path string) {
 
 	log.Printf("read size: %d", n)
 	log.Printf("read content: %s", buf.Bytes())
+}
+
+func ReadWithSignedURL(store types.Storager, path string, expire time.Duration) {
+	signer, ok := store.(types.StorageHTTPSigner)
+	if !ok {
+		log.Fatalf("StorageHTTPSigner unimplemented")
+	}
+
+	// QuerySignHTTPRead needs at least two arguments.
+	//
+	// `path` is the path of object.
+	// `expire` provides the time period, with type time.Duration, for which the generated req.URL is valid.
+	//
+	// QuerySignHTTPRead will return two values.
+	// `req` is the generated `*http.Request`, `req.URL` specifies the URL to access with signature in the query string. And `req.Header` specifies the HTTP headers included in the signature.
+	// `err` is the error during this operation.
+	req, err := signer.QuerySignHTTPRead(path, expire)
+	if err !=nil {
+		log.Fatalf("read %v: %v", path, err)
+	}
+
+	client := http.Client{}
+	resp, err := client.Do(req)
+	if err != nil {
+		log.Fatalf("send HTTP request for reading %v: %v", path, err)
+	}
+
+	defer func() {
+		err = resp.Body.Close()
+		if err != nil {
+			log.Fatalf("close HTTP response body for reading %v: %v", path, err)
+		}
+	}()
+
+	buf, err := ioutil.ReadAll(resp.Body)
+	if err != nil {
+		log.Fatalf("read from HTTP response body for reading %v: %v", path, err)
+	}
+
+	log.Printf("read size: %d", resp.ContentLength)
+	log.Printf("read content: %s", buf)
 }
