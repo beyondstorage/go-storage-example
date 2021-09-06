@@ -75,7 +75,7 @@ func NewS3SseKms(keyId string, context map[string]string, bucketKeyEnabled bool)
 					// Optional, S3 Bucket Key settings will be used if this is not specified.
 					//
 					// S3 Bucket Keys can reduce your AWS KMS request costs by decreasing the request traffic from Amazon S3 to AWS KMS. https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html#sse-kms-bucket-keys
-					s3.WithServerSideEncryptionBucketKeyEnabled(bucketKeyEnabled),
+					s3.WithServerSideEncryptionBucketKeyEnabled(),
 				},
 			}))...,
 	)
