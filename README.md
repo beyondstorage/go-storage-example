@@ -11,6 +11,7 @@
 - [Read a file](read.go)
 - [Read a range of a file](read.go)
 - [Read a file with callback](read.go)
+- [Read a file using signed URL](read.go)
 - [Append to a new file](append.go)
 - [Append to an existing file](append.go)
 - [Multipart upload](multipart.go)
