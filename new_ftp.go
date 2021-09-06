@@ -31,7 +31,7 @@ func NewFTP() (types.Storager, error) {
 
 func NewFTPFromString() (types.Storager, error) {
 	str := fmt.Sprintf(
-		"ftp:///%s?credential=%s&endpoint=%s",
+		"ftp://%s?credential=%s&endpoint=%s",
 		os.Getenv("STORAGE_FTP_WORKDIR"),
 		os.Getenv("STORAGE_FTP_CREDENTIAL"),
 		os.Getenv("STORAGE_FTP_ENDPOINT"),

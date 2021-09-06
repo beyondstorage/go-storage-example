@@ -1,10 +1,12 @@
 package example
 
 import (
+	"fmt"
 	"os"
 
 	s3 "github.com/beyondstorage/go-service-s3/v2"
 	"github.com/beyondstorage/go-storage/v4/pairs"
+	"github.com/beyondstorage/go-storage/v4/services"
 	"github.com/beyondstorage/go-storage/v4/types"
 )
 
@@ -39,5 +41,21 @@ func NewS3() (types.Storager, error) {
 		//
 		// name is the bucket name.
 		pairs.WithName(os.Getenv("STORAGE_S3_NAME")),
+		// features: https://beyondstorage.io/docs/go-storage/pairs/index#feature-pairs
+		//
+		// virtual_dir feature is designed for a service that doesn't have native dir support but wants to provide simulated operations.
+		s3.WithEnableVirtualDir(),
 	)
+}
+
+func NewS3FromString() (types.Storager, error) {
+	connStr := fmt.Sprintf(
+		"s3://%s%s?credential=%s&endpoint=%s&location=%s&enbale_virtual_dir",
+		os.Getenv("STORAGE_S3_NAME"),
+		os.Getenv("STORAGE_S3_WORKDIR"),
+		os.Getenv("STORAGE_S3_CREDENTIAL"),
+		os.Getenv("STORAGE_S3_ENDPOINT"),
+		os.Getenv("STORAGE_S3_LOCATION"),
+	)
+	return services.NewStoragerFromString(connStr)
 }
