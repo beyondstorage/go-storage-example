@@ -13,7 +13,7 @@ import (
 	"github.com/beyondstorage/go-storage/v4/types"
 )
 
-func WriteData (store types.Storager, path string) {
+func WriteData(store types.Storager, path string) {
 	// content to write
 	size := rand.Int63n(4 * 1024 * 1024)
 	r := io.LimitReader(randbytes.NewRand(), size)
@@ -34,7 +34,7 @@ func WriteData (store types.Storager, path string) {
 	log.Printf("write size: %d", n)
 }
 
-func WriteWithCallback (store types.Storager, path string) {
+func WriteWithCallback(store types.Storager, path string) {
 	// content to write
 	size := rand.Int63n(4 * 1024 * 1024)
 	r := io.LimitReader(randbytes.NewRand(), size)
@@ -55,7 +55,7 @@ func WriteWithCallback (store types.Storager, path string) {
 	log.Printf("write size: %d", n)
 }
 
-func WriteWithSignedURL (store types.Storager, path string, expire time.Duration) {
+func WriteWithSignedURL(store types.Storager, path string, expire time.Duration) {
 	signer, ok := store.(types.StorageHTTPSigner)
 	if !ok {
 		log.Fatalf("StorageHTTPSigner unimplemented")
@@ -78,7 +78,7 @@ func WriteWithSignedURL (store types.Storager, path string, expire time.Duration
 	//
 	// `err` is the error during this operation.
 	req, err := signer.QuerySignHTTPWrite(path, size, expire)
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("write %v: %v", path, err)
 	}
 
