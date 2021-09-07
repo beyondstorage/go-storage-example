@@ -20,3 +20,7 @@
 - [Multipart upload](multipart.go)
 - [Resume a multipart upload](multipart.go)
 - [Cancel a multipart upload](multipart.go)
+- [List all files](list.go)
+- [List a directory](list.go)
+- [List with prefix](list.go)
+- [List multipart uploads](list.go)
