@@ -82,7 +82,6 @@ func ReadWithSignedURL(store types.Storager, path string, expire time.Duration) 
 	}
 
 	// QuerySignHTTPRead needs at least two arguments.
-	//
 	// `path` is the path of object.
 	// `expire` provides the time period, with type time.Duration, for which the generated req.URL is valid.
 	//
@@ -90,7 +89,7 @@ func ReadWithSignedURL(store types.Storager, path string, expire time.Duration) 
 	// `req` is the generated `*http.Request`, `req.URL` specifies the URL to access with signature in the query string. And `req.Header` specifies the HTTP headers included in the signature.
 	// `err` is the error during this operation.
 	req, err := signer.QuerySignHTTPRead(path, expire)
-	if err !=nil {
+	if err != nil {
 		log.Fatalf("read %v: %v", path, err)
 	}
 

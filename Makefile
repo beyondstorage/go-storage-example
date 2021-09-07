@@ -19,7 +19,7 @@ format:
 vet:
 	go vet ./...
 
-build: tidy check
+build: tidy format check
 	go build ./...
 
 test:
