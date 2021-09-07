@@ -22,21 +22,23 @@ func FSOpen(store types.Storager, path string) {
 
 	defer f.Close()
 
-	_, err = ioutil.ReadAll(f)
+	data, err := ioutil.ReadAll(f)
 	if err != nil {
-		log.Fatalf("Open+ReadAll %v: %v", path, err)
+		log.Fatalf("ReadAll %v: %v", path, err)
 	}
+
+	log.Printf("read content: %s", data)
 }
 
 func FSReadFile(store types.Storager, path string) {
 	fsys := fswrap.Fs(store)
 
-	f, ok := fsys.(fs.ReadFileFS)
+	rf, ok := fsys.(fs.ReadFileFS)
 	if !ok {
 		log.Fatalf("fs.ReadFileFS unimplemented")
 	}
 
-	data, err := f.ReadFile(path)
+	data, err := rf.ReadFile(path)
 	if err != nil {
 		log.Fatalf("ReadFile %v: %v", path, err)
 	}
@@ -47,12 +49,12 @@ func FSReadFile(store types.Storager, path string) {
 func FSReadDir(store types.Storager, path string) {
 	fsys := fswrap.Fs(store)
 
-	d, ok := fsys.(fs.ReadDirFS)
+	rd, ok := fsys.(fs.ReadDirFS)
 	if !ok {
 		log.Fatalf("fs.ReadDirFS unimplemented")
 	}
 
-	list, err := d.ReadDir(path)
+	list, err := rd.ReadDir(path)
 	if err != nil {
 		log.Fatalf("ReadDir %v: %v", path, err)
 	}
@@ -119,5 +121,5 @@ func FileRead(store types.Storager, path string) {
 		log.Fatalf("Read %v: %v", path, err)
 	}
 
-	log.Printf("read data length: %d", n)
+	log.Printf("read data size: %d", n)
 }
