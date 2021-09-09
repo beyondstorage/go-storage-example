@@ -8,6 +8,7 @@
 - [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
 - [Create minio Storager](new_minio.go) (MinIO)
 - [Create ftp Storager](new_ftp.go) (File Transfer Protocol)
+- [Create hdfs Storager](new_hdfs.go) (Hadoop Distributed File System)
 
 ## Basic Operations
 
