@@ -2,13 +2,15 @@
 
 ## Init Service/Storage
 
-- [Create fs Storager](new_fs.go)
-- [Create s3 Storager](new_s3.go) (Amazon S3)
+- [Create bos Storager](new_bos.go) (Baidu Object Storage)
 - [Create cos Storager](new_cos.go) (Tencent Cloud Object Storage)
-- [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
-- [Create minio Storager](new_minio.go) (MinIO)
+- [Create fs Storager](new_fs.go)
 - [Create ftp Storager](new_ftp.go) (File Transfer Protocol)
 - [Create hdfs Storager](new_hdfs.go) (Hadoop Distributed File System)
+- [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
+- [Create minio Storager](new_minio.go) (MinIO)
+- [Create obs Storager](new_obs.go) (Huawei Object Storage Service)
+- [Create s3 Storager](new_s3.go) (Amazon S3)
 
 ## Basic Operations
 
