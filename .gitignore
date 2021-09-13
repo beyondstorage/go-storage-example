@@ -1,3 +1,5 @@
 # Jetbrain IDE
 .idea
 *.iml
+
+coverage.*
