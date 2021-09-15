@@ -12,7 +12,6 @@ github.com/baidubce/bce-sdk-go v0.9.87 h1:dFe/jqUxYtsGZ4hebN3mUOWaN7hmNTijL55tEh
 github.com/baidubce/bce-sdk-go v0.9.87/go.mod h1:zbYJMQwE4IZuyrJiFO8tO8NbtYiKTFTbwh4eIsqjVdg=
 github.com/beyondstorage/go-credential v0.0.0-20210804082910-7c63d94f2826 h1:9cHyxD1JKUHWzWtDgaoLvzsR1JeEwguuL9IYSN7tk3k=
 github.com/beyondstorage/go-credential v0.0.0-20210804082910-7c63d94f2826/go.mod h1:A7WYzKKk479gERCs5/5jWi0kNN24bqeMjD8IJik4JBA=
-github.com/beyondstorage/go-endpoint v1.0.1/go.mod h1:P2hknaGrziOJJKySv/XnAiVw/d3v12/LZu2gSxEx4nM=
 github.com/beyondstorage/go-endpoint v1.1.0 h1:cpjmQdrAMyaLoT161NIFU/eXcsuMI3xViycid5/mBZg=
 github.com/beyondstorage/go-endpoint v1.1.0/go.mod h1:P2hknaGrziOJJKySv/XnAiVw/d3v12/LZu2gSxEx4nM=
 github.com/beyondstorage/go-integration-test/v4 v4.2.0/go.mod h1:jLyYWSGUjQRH7U1HdaLbXE5sxBgqrtK73q+Q7PGIuSs=
@@ -28,8 +27,8 @@ github.com/beyondstorage/go-service-ftp v0.1.0 h1:z2ixWvDv9stzhGoJkv9AmEMGtzytOO
 github.com/beyondstorage/go-service-ftp v0.1.0/go.mod h1:9muNx+M8lUeFoGDk1xEeBMNLN4QyiOR8noI8owAiY9A=
 github.com/beyondstorage/go-service-hdfs v0.2.1 h1:h7gB/rJMbtadQd3QaRygAH5h3h2aTlK9aVIXZxX6IT8=
 github.com/beyondstorage/go-service-hdfs v0.2.1/go.mod h1:GRfbnXIjjvThYdJzDXHrGyL5mIm5oxy0W9bhTj10UBc=
-github.com/beyondstorage/go-service-ipfs v0.1.0 h1:x95Am3rm0wfex85Jl1EFhfU3WdA44nKg5t4FEULJt9M=
-github.com/beyondstorage/go-service-ipfs v0.1.0/go.mod h1:WY3xS1k2fNAi2Au2tKTC9NPUJwsskYEaZjjDXs2VkKQ=
+github.com/beyondstorage/go-service-ipfs v0.2.0 h1:mBGyqpxUZeq5d6Z1SJP8dYQdJpiBITusZX9uxXN5bYI=
+github.com/beyondstorage/go-service-ipfs v0.2.0/go.mod h1:lpg5t7cGcKDNCih9KwLoWzaByGLkwzYrs9pEY4bf8fk=
 github.com/beyondstorage/go-service-minio v0.2.0 h1:Crr17mYPRH42AVw56Esbd1Jo2knik2PU08VGraQVLKU=
 github.com/beyondstorage/go-service-minio v0.2.0/go.mod h1:TZn3YpYgVuzNybP8BdG+20w3U/b9T65tmOG54Gveaec=
 github.com/beyondstorage/go-service-obs v1.0.0 h1:1dz/ULZ0hnA3Q/tUr4bm9HXbQ5GdOXrkVcfrOBNxuxQ=
