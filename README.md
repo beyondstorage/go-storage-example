@@ -8,6 +8,7 @@
 - [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
 - [Create minio Storager](new_minio.go) (MinIO)
 - [Create ftp Storager](new_ftp.go) (File Transfer Protocol)
+- [Create gdrive Storager](new_gdrive.go) (Google Drive)
 - [Read a file](read.go)
 - [Read a range of a file](read.go)
 - [Read a file with callback](read.go)
