@@ -9,6 +9,7 @@
 - [Create hdfs Storager](new_hdfs.go) (Hadoop Distributed File System)
 - [Create ipfs Storager](new_ipfs.go) (InterPlanetary File System)
 - [Create minio Storager](new_minio.go) (MinIO)
+- [Create gdrive Storager](new_gdrive.go) (Google Drive)
 - [Create obs Storager](new_obs.go) (Huawei Object Storage Service)
 - [Create s3 Storager](new_s3.go) (Amazon S3)
 
