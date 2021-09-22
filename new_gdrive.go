@@ -29,7 +29,7 @@ func NewGdrive() (types.Storager, error) {
 
 func NewGdriveFromString() (types.Storager, error) {
 	str := fmt.Sprintf(
-		"gdrive://%s/%s?credential=%s",
+		"gdrive://%s%s?credential=%s",
 		os.Getenv("STORAGE_GDRIVE_NAME"),
 		os.Getenv("STORAGE_GDRIVE_WORKDIR"),
 		os.Getenv("STORAGE_GDRIVE_CREDENTIAL"),
