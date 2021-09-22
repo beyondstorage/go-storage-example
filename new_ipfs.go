@@ -1,10 +1,12 @@
 package example
 
 import (
+	"fmt"
 	"os"
 
 	ipfs "github.com/beyondstorage/go-service-ipfs"
 	"github.com/beyondstorage/go-storage/v4/pairs"
+	"github.com/beyondstorage/go-storage/v4/services"
 	"github.com/beyondstorage/go-storage/v4/types"
 )
 
@@ -19,4 +21,13 @@ func NewIPFS() (types.Storager, error) {
 		// Example Value: https:host:port
 		pairs.WithEndpoint(os.Getenv("STORAGE_IPFS_ENDPOINT")),
 	)
+}
+
+func NewIPFSFromString() (types.Storager, error) {
+	connStr := fmt.Sprintf(
+		"ipfs://%s?endpoint=%s",
+		os.Getenv("STORAGE_IPFS_WORKDIR"),
+		os.Getenv("STORAGE_IPFS_ENDPOINT"),
+	)
+	return services.NewStoragerFromString(connStr)
 }

@@ -35,7 +35,7 @@ func NewMinio() (types.Storager, error) {
 
 func NewMinioFromString() (types.Storager, error) {
 	str := fmt.Sprintf(
-		"minio://%s/%s?credential=%s&endpoint=%s",
+		"minio://%s%s?credential=%s&endpoint=%s",
 		os.Getenv("STORAGE_MINIO_NAME"),
 		os.Getenv("STORAGE_MINIO_WORKDIR"),
 		os.Getenv("STORAGE_MINIO_CREDENTIAL"),

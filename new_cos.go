@@ -1,10 +1,12 @@
 package example
 
 import (
+	"fmt"
 	"os"
 
 	cos "github.com/beyondstorage/go-service-cos/v2"
 	"github.com/beyondstorage/go-storage/v4/pairs"
+	"github.com/beyondstorage/go-storage/v4/services"
 	"github.com/beyondstorage/go-storage/v4/types"
 )
 
@@ -29,4 +31,15 @@ func NewCos() (types.Storager, error) {
 		// name is the bucket name.
 		pairs.WithName(os.Getenv("STORAGE_COS_NAME")),
 	)
+}
+
+func NewCosFromString() (types.Storager, error) {
+	connStr := fmt.Sprintf(
+		"cos://%s%s?credential=%s&location=%s",
+		os.Getenv("STORAGE_COS_NAME"),
+		os.Getenv("STORAGE_COS_WORKDIR"),
+		os.Getenv("STORAGE_COS_CREDENTIAL"),
+		os.Getenv("STORAGE_COS_LOCATION"),
+	)
+	return services.NewStoragerFromString(connStr)
 }
