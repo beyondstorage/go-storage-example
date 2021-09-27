@@ -12,7 +12,7 @@
 - [Create gdrive Storager](new_gdrive.go) (Google Drive)
 - [Create obs Storager](new_obs.go) (Huawei Object Storage Service)
 - [Create s3 Storager](new_s3.go) (Amazon S3)
-
+- [Create storj Storager](new_storj.go) (Storj)
 ## Basic Operations
 
 ### List files
