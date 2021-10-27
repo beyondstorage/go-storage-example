@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	minio "github.com/beyondstorage/go-service-minio"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	minio "go.beyondstorage.io/services/minio"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewMinio() (types.Storager, error) {

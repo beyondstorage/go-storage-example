@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	s3 "github.com/beyondstorage/go-service-s3/v2"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	s3 "go.beyondstorage.io/services/s3/v3"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewS3() (types.Storager, error) {

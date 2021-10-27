@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	hdfs "github.com/beyondstorage/go-service-hdfs"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	hdfs "go.beyondstorage.io/services/hdfs"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewHDFS() (types.Storager, error) {

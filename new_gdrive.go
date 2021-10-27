@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	gdrive "github.com/beyondstorage/go-service-gdrive"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	gdrive "go.beyondstorage.io/services/gdrive"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewGdrive() (types.Storager, error) {

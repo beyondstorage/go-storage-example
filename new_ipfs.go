@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	ipfs "github.com/beyondstorage/go-service-ipfs"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	ipfs "go.beyondstorage.io/services/ipfs"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewIPFS() (types.Storager, error) {

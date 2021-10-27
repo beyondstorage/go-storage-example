@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	fs "github.com/beyondstorage/go-service-fs/v3"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	fs "go.beyondstorage.io/services/fs/v4"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewFs() (types.Storager, error) {

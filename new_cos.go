@@ -4,10 +4,10 @@ import (
 	"fmt"
 	"os"
 
-	cos "github.com/beyondstorage/go-service-cos/v2"
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/services"
-	"github.com/beyondstorage/go-storage/v4/types"
+	cos "go.beyondstorage.io/services/cos/v3"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/services"
+	"go.beyondstorage.io/v5/types"
 )
 
 func NewCos() (types.Storager, error) {
