@@ -1,6 +1,6 @@
 module go.beyondstorage.io/example
 
-go 1.15
+go 1.16
 
 require (
 	go.beyondstorage.io/services/bos/v2 v2.0.0
