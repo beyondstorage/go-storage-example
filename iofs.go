@@ -8,8 +8,8 @@ import (
 	"io/ioutil"
 	"log"
 
-	"github.com/beyondstorage/go-storage/v4/pkg/fswrap"
-	"github.com/beyondstorage/go-storage/v4/types"
+	"go.beyondstorage.io/v5/pkg/fswrap"
+	"go.beyondstorage.io/v5/types"
 )
 
 func FSOpen(store types.Storager, path string) {

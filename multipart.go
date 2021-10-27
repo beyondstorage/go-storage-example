@@ -8,9 +8,9 @@ import (
 	"log"
 	"math/rand"
 
-	"github.com/beyondstorage/go-storage/v4/pairs"
-	"github.com/beyondstorage/go-storage/v4/pkg/randbytes"
-	"github.com/beyondstorage/go-storage/v4/types"
+	"go.beyondstorage.io/v5/pairs"
+	"go.beyondstorage.io/v5/pkg/randbytes"
+	"go.beyondstorage.io/v5/types"
 )
 
 func Multipart(store types.Storager, path string) {

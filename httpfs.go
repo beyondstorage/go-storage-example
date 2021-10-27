@@ -4,8 +4,8 @@ import (
 	"io"
 	"log"
 
-	"github.com/beyondstorage/go-storage/v4/pkg/fswrap"
-	"github.com/beyondstorage/go-storage/v4/types"
+	"go.beyondstorage.io/v5/pkg/fswrap"
+	"go.beyondstorage.io/v5/types"
 )
 
 func HttpFSOpen(store types.Storager, path string) {
