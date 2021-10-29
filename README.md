@@ -11,7 +11,7 @@
 - [Create minio Storager](new_minio.go) (MinIO)
 - [Create gdrive Storager](new_gdrive.go) (Google Drive)
 - [Create s3 Storager](new_s3.go) (Amazon S3)
-
+- [Create storj Storager](new_storj.go) (Storj)
 ## Basic Operations
 
 ### List files
